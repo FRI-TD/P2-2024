@@ -10,8 +10,8 @@ public class Obresti {
 		double koncniZnesek = glavnica * Math.pow(1+obrestnaMera/100, steviloLet);
 
 		System.out.println("Glavnica: "      + glavnica);
-		System.out.println("Število let: "   + steviloLet);
 		System.out.println("Obrestna mera: " + obrestnaMera);
+		System.out.println("Število let: "   + steviloLet);
 		System.out.println("Končni znesek: " + koncniZnesek);
 	}
 }
