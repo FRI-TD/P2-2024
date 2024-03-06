@@ -1,3 +1,5 @@
+.gitignore
+/dn/
 /tests/
 /*.iml
 
