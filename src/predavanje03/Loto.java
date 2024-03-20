@@ -12,7 +12,7 @@ public class Loto {
     Random rnd = new Random(); // izbiro semena prepustim javi
     for (int i = 0; i < 7; i = i + 1) {
       int x = rnd.nextInt(49) + 1;
-      System.out.print(" " + x);
+      System.out.print((i>0 ? " " : "") + x);
     }
   }
 }
