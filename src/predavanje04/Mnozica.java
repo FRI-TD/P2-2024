@@ -43,6 +43,14 @@ public class Mnozica {
     return "["+result+"]";
   }
 
+  static int presek(int m1, int m2) {
+    return m1 & m2;
+  }
+
+  static int unija(int m1, int m2) {
+    return m1 | m2;
+  }
+
   public static void main(String[] args) {
     int mnozica1 = getPraznaMnožica();
     mnozica1 = dodajElement(mnozica1, 'a','i', 'e', 'z');
@@ -52,12 +60,12 @@ public class Mnozica {
     mnozica2 = dodajElement(mnozica2, 'a', 'f','z', 'b');
     System.out.printf("Mnozica2=%s\n", toString(mnozica2));
 
-//    int presek = presek(mnozica1, mnozica2);
-//    int unija  = unija (mnozica1, mnozica2);
-//    System.out.printf("presek(%s, %s)=%s\n",
-//            toString(mnozica1), toString(mnozica2), toString(presek));
-//    System.out.printf("inija (%s, %s)=%s\n",
-//            toString(mnozica1), toString(mnozica2), toString (unija));
+    int presek = presek(mnozica1, mnozica2);
+    int unija  = unija (mnozica1, mnozica2);
+    System.out.printf("presek(%s, %s)=%s\n",
+            toString(mnozica1), toString(mnozica2), toString(presek));
+    System.out.printf("unija (%s, %s)=%s\n",
+            toString(mnozica1), toString(mnozica2), toString (unija));
 
   }
 }
