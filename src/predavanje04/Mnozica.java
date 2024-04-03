@@ -6,6 +6,11 @@ public class Mnozica {
     return 0;
   }
 
+  /*
+  Daljsi komentar
+  cez vec
+  vrstic
+   */
   static int getBit(int element) {
     int c = element - 'a'; // 'a' -> 0, 'b' -> 1, ...
     return 1 << c;
@@ -13,7 +18,7 @@ public class Mnozica {
 
   // drugi parameter je en ali več int-ov; ustvari se tabela int[]
   static int dodajElement(int mnozica, char... elementi) {
-    for(int i=0; i<elementi.length; i++) {
+    for(int i=0; i<elementi.length; i++) { // for zanka
       mnozica = dodajElement(mnozica, elementi[i]);
     }
     return mnozica;
