@@ -81,12 +81,6 @@ public class Risanje {
     }
   }
 
-  static void kazalec(double r, double fi) {
-    double x = r * Math.cos(Math.toRadians(fi));
-    double y = r * Math.sin(Math.toRadians(fi));
-    StdDraw.line(0,0, x,y);
-  }
-
   static void radar() {
     StdDraw.setScale(-100,100);
     StdDraw.setPenColor(Color.green);
@@ -111,10 +105,24 @@ public class Risanje {
     }
   }
 
+  static void kazalec(double r, double fi) {
+    kazalec(r,fi,0.0016);
+  }
+
+  static void kazalec(double r, double fi, double debelina) {
+    double praviKot = 90- fi;
+    double x = r * Math.cos(Math.toRadians(praviKot));
+    double y = r * Math.sin(Math.toRadians(praviKot));
+
+    StdDraw.setPenRadius(debelina);
+    StdDraw.line(0,0, x,y);
+  }
+
   static void ura() {
     StdDraw.setScale(-100,100);
-    DateTimeFormatter f    = DateTimeFormatter.ofPattern("HH:mm:ss");
+    DateTimeFormatter f    = DateTimeFormatter.ofPattern("HH:mm:ss:SS");
 
+    StdDraw.enableDoubleBuffering();
     for(;;) {
       StdDraw.clear(Color.white);
       LocalDateTime time = LocalDateTime.now();
@@ -129,7 +137,49 @@ public class Risanje {
       }
 
       StdDraw.text(-80, 90, cas);
-      StdDraw.pause(1000);
+
+      int h = time.getHour();
+      kazalec(60, (h%12) * 30, 0.01);
+
+      int min = time.getMinute();
+      kazalec(75, 6*min, 0.005);
+
+      int sec = time.getSecond();
+      double ss  = time.getNano()/10000000;
+      kazalec(85, sec*6 + ss/100*6, 0.001);
+
+      for(int kot = 0; kot < 360; kot = kot + 6) {
+        double xo = Math.cos(Math.toRadians(kot));
+        double yo = Math.sin(Math.toRadians(kot));
+        StdDraw.line(80*xo, 80*yo, 83*xo, 83*yo);
+      }
+
+      StdDraw.show();
+
+      StdDraw.pause(10);
+    }
+  }
+
+  public static void graf() {
+    double X1=-4, X2 = 4;
+    double Y1 =-10, Y2 = 10;
+
+    double W = 100;
+    double H = 100;
+    StdDraw.setXscale(0,W);
+    StdDraw.setYscale(0,H);
+
+    StdDraw.line(0,H/2, W, H/2);
+    StdDraw.line(W/2, 0 , W/2, H);
+
+    double pI =0, pJ = 0;
+    for(int i=0; i<=W; i++) {
+      double x = i*(X2-X1)/ W + X1;  // i = 0; x = -2PI
+      double y = Math.exp(x);        // y = 0
+      double j = H*(y-Y1)/(Y2-Y1);   // 100*(0-(-1))/(1-(-1)) = 50
+
+      StdDraw.line(pI,pJ,i,j);
+      pI = i; pJ = j;
     }
   }
 
@@ -140,6 +190,8 @@ public class Risanje {
     //kvadratnaSpirala();
     //spirala();
     // radar();
-    ura();
+    //ura();
+
+    graf();
   }
 }
