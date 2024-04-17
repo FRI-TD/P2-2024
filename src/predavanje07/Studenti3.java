@@ -38,7 +38,7 @@ public class Studenti3 {
     for(int i=0; i<n; i++) {
       studenti[i] = new Student();
       System.out.println("Vpisi " + (i + 1) + ". ime: ");
-      studenti[i].ime = sc.nextLine();
+      studenti[i].setIme(sc.nextLine());
       System.out.println("Vpisi " + (i + 1) + ". id: ");
       studenti[i].id = sc.nextInt();
     }
