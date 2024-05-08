@@ -1,4 +1,4 @@
-package predavenje10;
+package predavanje10;
 
 import java.io.File;
 import java.util.HashMap;

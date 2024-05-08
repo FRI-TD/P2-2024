@@ -1,4 +1,4 @@
-package predavenje10;
+package predavanje10;
 
 import java.util.ArrayList;
 

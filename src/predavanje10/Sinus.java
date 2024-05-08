@@ -1,7 +1,4 @@
-package predavenje10;
-
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+package predavanje10;
 
 public class Sinus implements Funkcija {
   @Override

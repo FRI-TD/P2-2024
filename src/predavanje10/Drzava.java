@@ -1,4 +1,4 @@
-package predavenje10;
+package predavanje10;
 
 public class Drzava {
   private String kratica;

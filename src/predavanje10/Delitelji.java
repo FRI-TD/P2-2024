@@ -1,4 +1,4 @@
-package predavenje10;
+package predavanje10;
 
 import java.util.Set;
 import java.util.TreeSet;
